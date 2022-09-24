@@ -1,6 +1,6 @@
 import axios from 'axios';
 import TelegramBot from "node-telegram-bot-api";
-import {targets, telegramAPIToken, chatID} from './config.js'
+import {targets, telegramAPIToken, chatID, targetMap} from './config.js'
 
 const bot = new TelegramBot(telegramAPIToken, {polling: true});
 
@@ -14,7 +14,7 @@ const start = async () => {
         storeResponse.data.body.content.pickupMessage.stores.forEach(store => {
           console.log(`${model}: ${store.storeName}: ${store.partsAvailability[model].pickupDisplay}`)
           if (store.partsAvailability[model].pickupDisplay == "available") {
-            bot.sendMessage(chatID, model);
+            bot.sendMessage(chatID, `${targetMap[model]} : ${model}: ${store.storeName}`);
           }
         })
       } catch (err) {
@@ -22,7 +22,7 @@ const start = async () => {
       }
     })
 
-    await wait(5000)
+    await wait(3000)
   }
 }
 
