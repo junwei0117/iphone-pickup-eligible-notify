@@ -1,0 +1,13 @@
+{
+  "name": "iphone-pickup-eligible-notify",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:junwei0117/iphone-pickup-eligible-notify.git",
+  "author": "junwei0117 <v860117@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "node-telegram-bot-api": "^0.59.0"
+  }
+}
